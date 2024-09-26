@@ -165,7 +165,7 @@ p {
 /* Main container */
 .main-container {
     width: 1392px; /* Fixed width */
-    max-width: 100%;
+    max-width: 80%;
     margin: 0 auto;
 }
 
