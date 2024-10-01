@@ -62,6 +62,7 @@ p {
 
 .header{
     height: 101px;
+    width: 100%;
     width: 1392px;
     margin-bottom: 40px;
 }
