@@ -62,11 +62,7 @@ p {
 
 .header{
     height: 101px;
-<<<<<<< HEAD
-    width: 100%;
-=======
     width: 1392px;
->>>>>>> 6df8d37 (Website Revamp with project page)
     margin-bottom: 40px;
 }
 .container-1 {
@@ -169,11 +165,7 @@ p {
 /* Main container */
 .main-container {
     width: 1392px; /* Fixed width */
-<<<<<<< HEAD
-    max-width: 80%;
-=======
     max-width: 100%;
->>>>>>> 6df8d37 (Website Revamp with project page)
     margin: 0 auto;
 }
 

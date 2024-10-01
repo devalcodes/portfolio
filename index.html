@@ -13,8 +13,7 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="portfolio.css">
-<<<<<<< HEAD
-=======
+
     
     <style>
         /* ... existing styles ... */
@@ -93,7 +92,7 @@
         #appyard-image { background-image: url('appyard.jpeg'); }
         #devaltex-image { background-image: url('devaltex.jpeg'); }
     </style>
->>>>>>> 6df8d37 (Website Revamp with project page)
+
 </head>
 <body>
     <div class="main-container">
@@ -105,11 +104,7 @@
                     <h1 class="my-1" style="font-family: Gilroy-Bold;">DEVAL <em style="font-family: Gilroy-Regular;">NATH</em></h1>
                     <nav>
                         <div class="flex-row">
-<<<<<<< HEAD
                             <a href="#" class="mx-md-3 my-2 my-md-0">PROJECTS</a>
-=======
-                            <a href="project.html" class="mx-md-3 my-2 my-md-0">PROJECTS</a>
->>>>>>> 6df8d37 (Website Revamp with project page)
                             <a href="#" class="mx-md-3 my-2 my-md-0">ABOUT</a>
                             <a href="#" class="mx-md-3 my-2 my-md-0">CONTACT</a>
                         </div>
@@ -142,7 +137,6 @@
             
             <!-- Container 3 -->
             <div class="col-custom-3">
-<<<<<<< HEAD
                 <div class="p-4 bg-light container-3">
                     <div class="background"></div> <!-- Background Layer -->
                     <div class="content d-flex flex-column justify-content-between h-100">
@@ -165,7 +159,6 @@
                             <p style="font-size: 1.5rem;" class="mb-0"><strong>DevalTex</strong></p>
                             <img src="arrow.png" alt="Arrow" class="img-fluid" style="max-height: 30px; margin-left: 10px;">
                         </a>
-=======
                 <div class="panel">
                     <div class="background"></div>
                     <div class="content d-flex flex-column justify-content-between h-100">
@@ -197,7 +190,6 @@
                             </a>
                             <div id="devaltex-image" class="project-image"></div>
                         </div>
->>>>>>> 6df8d37 (Website Revamp with project page)
                     </div>
                 </div>
             </div>
@@ -318,39 +310,6 @@
                 stagger: 0.25
             }, "-=0.5");
         });
-<<<<<<< HEAD
-=======
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const containers = document.querySelectorAll('.project-container');
-            let activeContainer = document.getElementById('aifyn-container');
-
-            function activateContainer(container) {
-                if (activeContainer) {
-                    activeContainer.querySelector('.project-link').classList.remove('active');
-                    activeContainer.querySelector('.project-image').classList.remove('active');
-                }
-
-                container.querySelector('.project-link').classList.add('active');
-                container.querySelector('.project-image').classList.add('active');
-                activeContainer = container;
-            }
-
-            // Activate Aifyn by default
-            activateContainer(activeContainer);
-
-            containers.forEach(container => {
-                container.addEventListener('mouseenter', function() {
-                    activateContainer(this);
-                });
-            });
-
-            document.querySelector('.panel').addEventListener('mouseleave', function() {
-                // Reactivate Aifyn when leaving the panel
-                activateContainer(document.getElementById('aifyn-container'));
-            });
-        });
->>>>>>> 6df8d37 (Website Revamp with project page)
     </script>
 </body>
 </html>
