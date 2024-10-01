@@ -13,6 +13,87 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="portfolio.css">
+<<<<<<< HEAD
+=======
+    
+    <style>
+        /* ... existing styles ... */
+
+        /* Header link styles */
+        .header nav a {
+            color: inherit; /* Use the parent's text color */
+            text-decoration: none; /* Remove underline */
+            transition: font-weight 0.3s ease; /* Smooth transition for font-weight */
+        }
+
+        .header nav a:hover {
+            font-weight: bold; /* Bold on hover */
+        }
+
+        /* Remove default link styles */
+        .header nav a:hover,
+        .header nav a:focus,
+        .header nav a:active {
+            color: inherit; /* Ensure color doesn't change on different states */
+            text-decoration: none; /* Ensure underline doesn't appear on different states */
+        }
+
+        /* ... rest of your styles ... */
+
+        /* Add these styles for the project container */
+        .panel {
+            background-color: #85A7CA;
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            height: 726px; /* Match the height of container-3 */
+        }
+
+        .project-container {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+            padding: 10px 0;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .project-link strong {
+            transition: all 0.3s ease;
+        }
+
+        .project-link.active strong {
+            font-weight: 700;
+            color: black;
+        }
+
+        .project-image {
+            height: 0;
+            transition: height 0.3s ease;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .project-image.active {
+            height: 200px;
+        }
+
+        #aifyn-image { background-image: url('chair.png'); }
+        #ewiai-image { background-image: url('ewiai.jpeg'); }
+        #appyard-image { background-image: url('appyard.jpeg'); }
+        #devaltex-image { background-image: url('devaltex.jpeg'); }
+    </style>
+>>>>>>> 6df8d37 (Website Revamp with project page)
 </head>
 <body>
     <div class="main-container">
@@ -24,7 +105,11 @@
                     <h1 class="my-1" style="font-family: Gilroy-Bold;">DEVAL <em style="font-family: Gilroy-Regular;">NATH</em></h1>
                     <nav>
                         <div class="flex-row">
+<<<<<<< HEAD
                             <a href="#" class="mx-md-3 my-2 my-md-0">PROJECTS</a>
+=======
+                            <a href="project.html" class="mx-md-3 my-2 my-md-0">PROJECTS</a>
+>>>>>>> 6df8d37 (Website Revamp with project page)
                             <a href="#" class="mx-md-3 my-2 my-md-0">ABOUT</a>
                             <a href="#" class="mx-md-3 my-2 my-md-0">CONTACT</a>
                         </div>
@@ -57,6 +142,7 @@
             
             <!-- Container 3 -->
             <div class="col-custom-3">
+<<<<<<< HEAD
                 <div class="p-4 bg-light container-3">
                     <div class="background"></div> <!-- Background Layer -->
                     <div class="content d-flex flex-column justify-content-between h-100">
@@ -79,6 +165,39 @@
                             <p style="font-size: 1.5rem;" class="mb-0"><strong>DevalTex</strong></p>
                             <img src="arrow.png" alt="Arrow" class="img-fluid" style="max-height: 30px; margin-left: 10px;">
                         </a>
+=======
+                <div class="panel">
+                    <div class="background"></div>
+                    <div class="content d-flex flex-column justify-content-between h-100">
+                        <div class="project-container" id="aifyn-container">
+                            <a href="https://aifyn.com" target="_blank" class="project-link d-flex justify-content-between align-items-center">
+                                <h3 class="mb-0"><strong>Aifyn</strong></h3>
+                                <img src="arrow.png" alt="Arrow" class="img-fluid" style="max-height: 30px; margin-left: 10px;">
+                            </a>
+                            <div id="aifyn-image" class="project-image"></div>
+                        </div>
+                        <div class="project-container">
+                            <a href="https://ewiai.com" target="_blank" class="project-link d-flex justify-content-between align-items-center">
+                                <p style="font-size: 1.5rem;" class="mb-0"><strong>Ewiai</strong></p>
+                                <img src="arrow.png" alt="Arrow" class="img-fluid" style="max-height: 30px; margin-left: 10px;">
+                            </a>
+                            <div id="ewiai-image" class="project-image"></div>
+                        </div>
+                        <div class="project-container">
+                            <a href="https://appyard.co.in" target="_blank" class="project-link d-flex justify-content-between align-items-center">
+                                <p style="font-size: 1.5rem;" class="mb-0"><strong>AppYard</strong></p>
+                                <img src="arrow.png" alt="Arrow" class="img-fluid" style="max-height: 30px; margin-left: 10px;">
+                            </a>
+                            <div id="appyard-image" class="project-image"></div>
+                        </div>
+                        <div class="project-container">
+                            <a href="https://devaltex.in" target="_blank" class="project-link d-flex justify-content-between align-items-center">
+                                <p style="font-size: 1.5rem;" class="mb-0"><strong>DevalTex</strong></p>
+                                <img src="arrow.png" alt="Arrow" class="img-fluid" style="max-height: 30px; margin-left: 10px;">
+                            </a>
+                            <div id="devaltex-image" class="project-image"></div>
+                        </div>
+>>>>>>> 6df8d37 (Website Revamp with project page)
                     </div>
                 </div>
             </div>
@@ -199,6 +318,39 @@
                 stagger: 0.25
             }, "-=0.5");
         });
+<<<<<<< HEAD
+=======
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const containers = document.querySelectorAll('.project-container');
+            let activeContainer = document.getElementById('aifyn-container');
+
+            function activateContainer(container) {
+                if (activeContainer) {
+                    activeContainer.querySelector('.project-link').classList.remove('active');
+                    activeContainer.querySelector('.project-image').classList.remove('active');
+                }
+
+                container.querySelector('.project-link').classList.add('active');
+                container.querySelector('.project-image').classList.add('active');
+                activeContainer = container;
+            }
+
+            // Activate Aifyn by default
+            activateContainer(activeContainer);
+
+            containers.forEach(container => {
+                container.addEventListener('mouseenter', function() {
+                    activateContainer(this);
+                });
+            });
+
+            document.querySelector('.panel').addEventListener('mouseleave', function() {
+                // Reactivate Aifyn when leaving the panel
+                activateContainer(document.getElementById('aifyn-container'));
+            });
+        });
+>>>>>>> 6df8d37 (Website Revamp with project page)
     </script>
 </body>
 </html>

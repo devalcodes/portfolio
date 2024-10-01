@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEVAL NATH</title>
+    <!-- Gilroy Font -->
+    <link href="https://fonts.cdnfonts.com/css/gilroy-bold" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        @font-face {
+            font-family: 'Gilroy-Regular';
+            src: url('Gilroy-Regular.ttf');
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Gilroy-Regular', sans-serif;
+            background-color: #597E9A;
+            color: #333;
+            height: 100%;
+        }
+        .main-container {
+            width: 1392px;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px 0; /* Remove horizontal padding */
+        }
+        .header {
+            background-color: #ACBFCF;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            height: 101px;
+            width: 1392px; /* Match content wrapper width */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .navbar-container {
+            height: 100%;
+            padding: 0 20px; /* Add padding inside the header */
+        }
+        .header nav a {
+            color: #000000; /* Set nav links to black */
+            text-decoration: none; /* Remove underline */
+            font-family: 'Gilroy-Regular', sans-serif;
+        }
+        .header nav a:hover {
+            color: #333333; /* Slightly lighter on hover for better UX */
+        }
+        .content-wrapper {
+            display: flex;
+            justify-content: space-between;
+            height: 821px;
+            width: 1392px;
+            margin: 0 auto;
+        }
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            width: calc(100% - 101px - 40px); /* Total width minus sidebar width and gaps */
+        }
+        .panel {
+            background-color: #85A7CA;
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        .panel .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+        }
+        .panel .content {
+            position: relative;
+            z-index: 1;
+        }
+        .panel a {
+            color: inherit;
+        }
+        .panel:first-child {
+            width: 580px; /* Further reduced width for first panel (Musea) */
+            flex-shrink: 0;
+        }
+        .panel:last-child {
+            width: 630px; /* Further reduced width for second panel (Fill me up) */
+            flex-shrink: 0;
+        }
+        .project-list {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .project {
+            margin-bottom: 10px;
+            font-size: 24px;
+            text-align: left;
+            font-family: 'Gilroy-Regular', sans-serif;
+        }
+        .project-image {
+            width: 100%;
+            height: 250px; /* Adjust this value as needed */
+            background-image: url('chair.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .sidebar {
+            width: 101px; /* Width for sidebar */
+            height: 642px; /* Height for sidebar */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            flex-shrink: 0; /* Prevent sidebar from shrinking */
+        }
+        .sidebar-links {
+            background-color: #a5c0db;
+            border-radius: 15px;
+            padding: 40px 10px; /* Increased top and bottom padding */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between; /* Added to distribute space evenly */
+            flex-grow: 1;
+            width: 100%;
+        }
+        .sidebar a {
+            margin: 25px 0; /* Significantly increased from 15px to 25px */
+            color: #333;
+            text-decoration: none;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+            font-family: 'Gilroy-Regular', sans-serif;
+        }
+        .flower {
+            width: 119px;
+            height: 119px;
+            background-image: url('flower.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-top: 20px;
+        }
+        .fill-this-up-container {
+            width: 100%;
+            height: 100%;
+            background-image: url('fillthisup.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .panel:first-child {
+            background-color: #91B0CD;
+            width: 580px;
+            flex-shrink: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-container {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            margin-bottom: 20px; /* Space between projects */
+        }
+
+        .project-link {
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+            padding: 10px 0;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .project-link strong {
+            transition: all 0.3s ease;
+        }
+
+        .project-link.active strong {
+            font-weight: 700;
+            color: black;
+        }
+
+        .project-image {
+            height: 0;
+            transition: height 0.3s ease;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .project-image.active {
+            height: 200px; /* Adjust as needed */
+        }
+
+        #aifyn-image { background-image: url('chair.png'); }
+        #ewiai-image { background-image: url('ewiai.jpeg'); }
+        #appyard-image { background-image: url('appyard.jpeg'); }
+        #devaltex-image { background-image: url('devaltex.jpeg'); }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="custom-box p-3 px-5 navbar-container">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center h-100">
+                    <h1 class="my-1">
+                        <a href="index.html" style="font-family: Gilroy-Bold; color: inherit; text-decoration: none;">
+                            DEVAL <em style="font-family: Gilroy-Regular;">NATH</em>
+                        </a>
+                    </h1>
+                    <nav>
+                        <div class="flex-row">
+                            <a href="#" class="mx-md-3 my-2 my-md-0">PROJECTS</a>
+                            <a href="#" class="mx-md-3 my-2 my-md-0">ABOUT</a>
+                            <a href="#" class="mx-md-3 my-2 my-md-0">CONTACT</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-wrapper">
+            <div class="main-content">
+                <div class="panel">
+                    <div class="background"></div>
+                    <div class="content d-flex flex-column justify-content-between h-100">
+                        <div class="project-container" id="aifyn-container">
+                            <a href="https://aifyn.com" target="_blank" class="project-link d-flex justify-content-between align-items-center">
+                                <h3 class="mb-0"><strong>Aifyn</strong></h3>
+                                <img src="arrow.png" alt="Arrow" class="img-fluid" style="max-height: 30px; margin-left: 10px;">
+                            </a>
+                            <div id="aifyn-image" class="project-image"></div>
+                        </div>
+                        <div class="project-container">
+                            <a href="https://ewiai.com" target="_blank" class="project-link d-flex justify-content-between align-items-center">
+                                <p style="font-size: 1.5rem;" class="mb-0"><strong>Ewiai</strong></p>
+                                <img src="arrow.png" alt="Arrow" class="img-fluid" style="max-height: 30px; margin-left: 10px;">
+                            </a>
+                            <div id="ewiai-image" class="project-image"></div>
+                        </div>
+                        <div class="project-container">
+                            <a href="https://appyard.co.in" target="_blank" class="project-link d-flex justify-content-between align-items-center">
+                                <p style="font-size: 1.5rem;" class="mb-0"><strong>AppYard</strong></p>
+                                <img src="arrow.png" alt="Arrow" class="img-fluid" style="max-height: 30px; margin-left: 10px;">
+                            </a>
+                            <div id="appyard-image" class="project-image"></div>
+                        </div>
+                        <div class="project-container">
+                            <a href="https://devaltex.in" target="_blank" class="project-link d-flex justify-content-between align-items-center">
+                                <p style="font-size: 1.5rem;" class="mb-0"><strong>DevalTex</strong></p>
+                                <img src="arrow.png" alt="Arrow" class="img-fluid" style="max-height: 30px; margin-left: 10px;">
+                            </a>
+                            <div id="devaltex-image" class="project-image"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="fill-this-up-container"></div>
+                </div>
+            </div>
+            <div class="sidebar">
+                <div class="sidebar-links d-flex flex-column justify-content-center">
+                    <a href="#linkedin">LINKEDIN</a>
+                    <a href="#twitter">TWITTER</a>
+                    <a href="#instagram">INSTAGRAM</a>
+                </div>
+                <div class="flower"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const containers = document.querySelectorAll('.project-container');
+        let activeContainer = document.getElementById('aifyn-container');
+
+        function activateContainer(container) {
+            if (activeContainer) {
+                activeContainer.querySelector('.project-link').classList.remove('active');
+                activeContainer.querySelector('.project-image').classList.remove('active');
+            }
+
+            container.querySelector('.project-link').classList.add('active');
+            container.querySelector('.project-image').classList.add('active');
+            activeContainer = container;
+        }
+
+        // Activate Aifyn by default
+        activateContainer(activeContainer);
+
+        containers.forEach(container => {
+            container.addEventListener('mouseenter', function() {
+                activateContainer(this);
+            });
+        });
+
+        document.querySelector('.panel').addEventListener('mouseleave', function() {
+            // Reactivate Aifyn when leaving the panel
+            activateContainer(document.getElementById('aifyn-container'));
+        });
+    });
+    </script>
+</body>
+</html>
